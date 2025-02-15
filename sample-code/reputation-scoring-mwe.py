@@ -1,9 +1,9 @@
 # Copyright (c) 2022 Infoblox, Inc.
 
 # Imports
-import random
 import pandas as pd
 import numpy as np
+import secrets
 
 # Only needed if visualizing the score distribution
 visualize_dist = True
@@ -45,12 +45,12 @@ items = []
 for i in range( number_of_items ):
 
     # Generate the total number of values per item
-    total_number_of_values = random.randint( min_values_per_item,
+    total_number_of_values = secrets.SystemRandom().randint(min_values_per_item,
             max_values_per_item )
     
     # Generate the number of values meeting our criteria (e.g., the number of
     # malicious domains in the TLD use case)
-    values_meeting_criteria = random.randint( 0, total_number_of_values )
+    values_meeting_criteria = secrets.SystemRandom().randint(0, total_number_of_values )
     
     # Save the values
     items.append( ( 'Item-{0:04d}'.format( i ),
